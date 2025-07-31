@@ -66,9 +66,7 @@ cd ntfsToExt4Formater
 chmod +x convert_ntfs_to_ext4.sh
 🚀 Usage
 1. Backup your data
-bash
-Copy
-Edit
+
 sudo cp -r /mnt/ntfs/* /path/to/backup/
 2. Boot into a safe environment
 Fedora Live USB:
@@ -82,9 +80,7 @@ Rescue Mode:
 At GRUB menu, select Fedora entry, press e, add rescue to kernel line, press Ctrl+X
 
 3. Run the script
-bash
-Copy
-Edit
+
 sudo ./convert_ntfs_to_ext4.sh /dev/sda4
 If no argument is provided, the script prompts for the partition
 
@@ -95,9 +91,7 @@ Review partition details (disk, sectors)
 Confirm to proceed
 
 4. Post-conversion steps
-bash
-Copy
-Edit
+
 sudo mkdir /mnt/ext4
 sudo mount /dev/sda4 /mnt/ext4
 
@@ -115,9 +109,7 @@ Safe Environment: Run only from Fedora Live USB or rescue mode.
 Root Access: Needed to modify partitions.
 
 🧪 Example
-bash
-Copy
-Edit
+
 $ sudo ./convert_ntfs_to_ext4.sh /dev/sda4
 Running in a safe environment (live USB or rescue mode).
 WARNING: Converting /dev/sda4 to ext4 will ERASE ALL DATA on this partition!
@@ -148,47 +140,29 @@ Ensure you are in a Live USB or rescue mode.
 
 Check mounted partitions:
 
-bash
-Copy
-Edit
 lsblk
 df -h | grep /dev/sda
 swapon --show
 Unmount or disable swap:
 
-bash
-Copy
-Edit
 sudo umount /dev/sda4
 sudo swapoff -a
 🔸 Partition not NTFS
 Check:
 
-bash
-Copy
-Edit
 lsblk -f
 🔸 Script fails
 Check the error message and output:
 
-bash
-Copy
-Edit
 sudo fdisk -l /dev/sda
 🔸 Missing tools
 Install required tools:
 
-bash
-Copy
-Edit
 sudo dnf install fdisk util-linux e2fsprogs
 🤝 Contributing
 Contributions are welcome!
 To contribute:
 
-bash
-Copy
-Edit
 # Fork the repo and create a branch
 git checkout -b feature/your-feature
 
